@@ -1,0 +1,24 @@
+{
+  "name": "node_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "consolidate": "^0.14.5",
+    "cors": "^2.8.1",
+    "express": "~4.14.0",
+    "mustache": "^2.3.0",
+    "nodemon": "^1.11.0",
+    "nodemailer": "*",
+    "morgan": "~1.7.0",
+    "jsonwebtoken": "~7.2.1",
+    "passcode": "~1.0.2",
+    "sendmail": "~1.1.1"
+  }
+}

@@ -1,0 +1,426 @@
+
+<!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper"> -->
+    <!-- Content Header (Page header) -->
+        <div class='bodyloading'>
+          <div class="boxloading_leaveTable"></div>
+        </div>
+    <section class="content-header createEmp_ModalBody hide">
+              <div class="header_Doc">
+                <div class="box_titleMedia box_title">Create Employee<span class="emp_numberDiv pull-right"></span></div>
+              </div> 
+  <div class="boxB">                              
+      <div class="modal-body">
+        <div class="well">
+         <ul class="nav nav-tabs">
+           <li ><a href="#login" id="tab1" data-toggle="tab">Personal details</a></li>
+             <li><a href="#create" id="tab2" data-toggle="tab">Address</a></li>
+             <li><a href="#further" id="tab3" data-toggle="tab">Further Information</a></li>
+         </ul>
+         <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active in" id="login">
+              <form class="form-horizontal form_Css" action='' method="POST">
+                               <fieldset>
+                                  <div class="form-group">
+                                   <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="name">First Name<i class="red"> &#42</i></label>
+                                   <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                     <input id="name" name="name" class="form-control formCreateemployee_Css" type="text">
+                                      <p class="red" id="error1" class="red" style="display:none;">This field is mandatory</p>
+                                       <p class="red" id="error1n" class="red" style="display:none;">Name should only alphabetic characters</p>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="inputEmail3">Middle Name</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                         <input id="mname" name="mname" class="form-control formCreateemployee_Css"  type="text">
+                                      <p class="red" id="error1m" class="red" style="display:none;">Middle Name should only alphabetic characters</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="last">Last Name<i class="red"> &#42</i></label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                       <input id="lname" class="form-control formCreateemployee_Css" type="text" >
+                                       <p class="red" id="error1a" class="red" style="display:none;">This field is mandatory</p>
+                                       <p class="red" id="error1b" class="red" style="display:none;">Last Name should only alphabetic characters</p>
+                                      </div>
+                                  </div>
+<!-- new one add.....? -->
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="inputEmail3">Contact Name</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                      <input id="emp_contact_name" name="emp_contact_name" class="form-control formCreateemployee_Css"  type="text">
+                                      <p class="red" id="error1c" class="red" style="display:none;">Contact Name should only alphabetic characters</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="inputEmail3">Relation</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                         <input id="emp_relation" name="emp_relation" class="form-control formCreateemployee_Css"  type="text">
+                                         <p class="red" id="error1r" class="red" style="display:none;">Relation should only alphabetic characters</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="inputEmail3">Qualification</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                         <input id="emp_qualification" name="emp_qualification" class="form-control formCreateemployee_Css"  type="text">
+                                      </div>
+                                  </div>
+<!-- new one end.....? -->                                  
+                                    <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">DOB<i class="red"> &#42</i></label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8  dateColDiv">
+                                      <div class="input-group date">
+                                        <div class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datePicCreateEmployee" id="datepicker">
+                                      </div>
+                                      <p class="red" id="error2" class="red" style="display:none;">This field is mandatory</p>
+                                      <!-- /.input group -->
+                                    </div>
+                                  </div>  
+                                    <div class="form-group">
+                                          <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">Gender<i class="red"> &#42</i></label>
+                                          <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                            <div class="radio" id="redioinput">
+                                              <label>
+                                                  <input type="radio" name="optionsRadios" id="gender"value="male">Male
+                                              </label>
+                                              <label>
+                                                <input type="radio" name="optionsRadios" id="gender"value="female">Female
+                                              </label>
+
+                                          <p class="red" id="error3" class="red" style="display:none;">This field is mandatory</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="fname">Father Name<i class="red"> &#42</i></label>
+                                        <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                            <input id="fname" class="form-control formCreateemployee_Css" type="text">
+                                            <p class="red" id="error4" class="red" style="display:none;">This field is mandatory</p>
+                                            <p class="red" id="error4a" class="red" style="display:none;">Father name should only alphabetic characters</p>
+                                        </div>
+                                    </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="mother">Mother Name </label>
+                                       <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                          <input id="mother" class="form-control formCreateemployee_Css" type="text">
+                                          <p class="red" id="error5" class="red" style="display:none;">Mother name should only alphabetic characters</p>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="mobile">Mobile<i class="red"> &#42</i></label>
+                                        <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                            <input id="mobile" class="form-control formCreateemployee_Css" type="number" maxlength="10">
+                                            <p class="red" id="error6" class="red" style="display:none;">This field is mandatory</p>
+                                           <p class="red" id="error6a" class="red" style="display:none;">Mobile number only have 10 digit</p> 
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="mobile">Alternate Mobile</label>
+                                          <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                          <input id="altmobile" class="form-control formCreateemployee_Css" type="number">
+                                        <p class="red" id="error6b" class="red" style="display:none;">Mobile number only have 10 digit</p>   
+                                          </div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="email">Company Email<i class="red"> &#42</i></label>
+                                        <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                        <input id="cmail" class="form-control formCreateemployee_Css" type="email">
+                                        <p class="red" id="error7" class="red" style="display:none;">This field is mandatory</p>
+                                        <p class="red" id="error7a" class="red" style="display:none;">Please type valid Email Id</p>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="altemail">Alternate Email</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                        <input id="altemail" class="form-control formCreateemployee_Css" type="email">
+                                        <p class="red" id="error7b" class="red" style="display:none;">Please type valid Email Id</p>
+                                      </div>
+                                  </div> 
+                              </fieldset>
+                       </form>                
+                 </div>
+              <div class="tab-pane fade" id="create">
+                  <form class="form-horizontal form_Css" action='' method="POST" id="add">
+                  <!-- <formfield class="add">  -->
+                    <fieldset>          
+                        <div class="form-group">
+                          <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="address1">Permanent Address<i class="red"> &#42</i></label>
+                            <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                              <input id="address1" class="form-control formCreateemployee_Css"  type="text">
+                                <p class="red" id="error8" class="red" style="display:none;">This field is mandatory</p>
+                            </div>
+                        </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="lmark">Land Mark</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                        <input id="lmark" class="form-control formCreateemployee_Css" type="text">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="city">City<i class="red"> &#42</i></label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                        <input id="city" class="form-control formCreateemployee_Css" type="text">
+                                         <p class="red" id="error9" class="red" style="display:none;">This field is mandatory</p>
+                                         <p class="red" id="error9a" class="red" style="display:none;">City name should only alphabetic characters</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="pin">PINCODE<i class="red"> &#42</i></label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                        <input id="pin" class="form-control formCreateemployee_Css" type="number">
+                                        <p class="red" id="error10" class="red" style="display:none;">This field is mandatory</p>
+                                        <p class="red" id="error10a" class="red" style="display:none;">PINCODE only have 6 digit</p>
+                                      </div>
+                                  </div>
+                      
+                                  <input type="checkbox" data-toggle="collapse" data-target="#collapse4" id="moo" />
+                                  <label for="moo">Click here if Temporary address is not same as permanent address</label>
+                                  <div id="collapse4" class="panel-collapse collapse">
+                                   <div class=form-group>
+                                  <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="address2">Temporary Address</label>
+                                  <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                  <input id="address2" class="form-control formCreateemployee_Css"  type="text">
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="lmark">Land Mark</label>
+                                  <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                  <input id="lmark2" class="form-control formCreateemployee_Css" type="text">
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="city">City</label>
+                                  <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                  <input id="city2" class="form-control formCreateemployee_Css" type="text">
+                                  <p class="red" id="error9b" class="red" style="display:none;">City name should only alphabetic characters</p>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="pin">PINCODE</label>
+                                  <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                  <input id="pin2" class="form-control formCreateemployee_Css" type="text">
+                                   <p class="red" id="error10b" class="red" style="display:none;">PINCODE only have 6 digit</p>
+                                  </div>
+                                  </div>
+                                </div>
+                             </fieldset>
+                            <!-- </formfeild>    -->
+                             </form>
+                             </div>
+
+              <div class="tab-pane fade" id="further">
+                   <form class="form-horizontal form_Css" action='' method="POST" id="add">
+                      <!-- <formfield class="add">  -->
+                        <fieldset>
+                          <div class="form-group">
+                           <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">Emp Id<i class="red"> &#42</i></label>
+                        <div class="dropdown col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                        <input id="emp_no" class="form-control formCreateemployee_Css" type="text">
+                        <p class="red" id="error11" class="red" style="display:none;">This field is mandatory</p>
+<!--                         <select class="form-control formCreateemployee_Css"id="departmentSelect">
+                               <option>hr</option>
+                               <option>production</option>
+                               <option>quality</option>
+                               <option>administration</option>
+                               <option>option 5</option>
+                         </select> -->
+                       </div>
+                       </div>
+                        <div class="form-group">
+                           
+                        <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">Designation</label>
+                        <div class="dropdown col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                        <select class="form-control formCreateemployee_Css" id="designationSelect">
+                                <option>select</option>
+                                <option>ceo</option>
+                                <option>co-founder</option>
+                                <option>hr</option>
+                                <option>sr software developer</option>
+                                <option>sr architect</option>
+                                <option>software developer</option>
+                                <option>qa analyst</option>
+                                <option>project manager</option>
+                                <option>trainee qa analyst</option>
+                                <option>qa teamlead</option>
+                                <option>manager</option>
+                                <option>team lead</option>
+                                <option>developer</option>
+                                <option>jr software devoloper</option>
+                                <option>marketting</option>
+                                <option>administrator</option>
+                          </select>
+                       </div>
+                       </div>
+
+<!-- new one start.....? --> 
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Status">Supervisor ID</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="emp_supId" class="form-control formCreateemployee_Css" type="text" maxlength="12">
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Status">Status</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="emp_status" class="form-control formCreateemployee_Css" type="text" maxlength="12">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Certificate">Certificate Detail</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                  <input id="emp_cer_submit" class="form-control formCreateemployee_Css" type="text" maxlength="12">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Agreement">Agreement Detail</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="emp_agrement_sign" class="form-control formCreateemployee_Css" type="text" maxlength="12">
+                                    </div>
+                                    </div>                                                                        
+<!-- new one end.....? --> 
+                                 
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Aadhar">Aadhar</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="Aadhar" class="form-control formCreateemployee_Css" type="number" maxlength="12">
+                                     <p class="red" id="errorAadhar"class="red"  style="display:none;">Aadhar number only have 12 digit</p>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="pan">Pancard</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="pan" class="form-control formCreateemployee_Css" type="text">
+                                     <p class="red" id="error13"class="red"  style="display:none;">This field is mandatory</p>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="pf">PF Number</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="pf" class="form-control formCreateemployee_Css" type="text">
+                                      <p class="red" id="error15"class="red"  style="display:none;">This field is mandatory</p>
+                                    </div>
+                                    </div>
+                  
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="esi">ESI Number</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="esiNum" class="form-control formCreateemployee_Css"  type="text">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="Insurence">Insurance Number</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="ins" class="form-control formCreateemployee_Css" type="text">
+                                    </div>
+                                    </div>
+                                    <div class="form-group ">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">Date Of Joining</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8  dateColDiv">
+                                      <div class="input-group date">
+                                      <div class="input-group-addon ">
+                                      <i class="fa fa-calendar"></i>
+                                      </div>
+                                      <input type="text" class="form-control datePicCreateEmployee" id="datepicker1">
+                                      </div>
+                                      </div>
+                                      </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="basic">BASIC PAY</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="basic" class="form-control formCreateemployee_Css" type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="da">DA</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="da" class="form-control formCreateemployee_Css" type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="incentives">INCENTIVES</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="incentives" class="form-control formCreateemployee_Css" type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="tax">TAX</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="tax" class="form-control formCreateemployee_Css" type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="pf">PF <i class="fa fa-inr" aria-hidden="true"></i></label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="pfp" class="form-control formCreateemployee_Css" type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="esi">ESI <i class="fa fa-inr" aria-hidden="true"></i></label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="esi" class="form-control formCreateemployee_Css"  type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="inputEmail3">Insurance <i class="fa fa-inr" aria-hidden="true"></i></label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="Insurence" class="form-control formCreateemployee_Css"  type="number">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="ded">Deductions <i class="fa fa-inr" aria-hidden="true"></i></label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="ded" class="form-control formCreateemployee_Css"  type="number">
+                                    </div>
+                                    </div>
+                                     <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="netpay">Net Pay <i class="fa fa-inr" aria-hidden="true"></i></label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="netpay" class="form-control formCreateemployee_Css"  type="text">
+                                    </div>
+                                    </div>
+                                    <div class="form-group ">
+                                      <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label">Next Payrole Revision</label>
+                                      <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8  dateColDiv">
+                                      <div class="input-group date">
+                                      <div class="input-group-addon ">
+                                      <i class="fa fa-calendar"></i>
+                                      </div>
+                                      <input type="text" class="form-control datePicCreateEmployee" id="datepicker2">
+                                      </div>
+                                      </div>
+                                      </div>
+                                      <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-xs-12 col-lg-3 control-label" for="key">Key</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 ">
+                                    <input id="key" class="form-control formCreateemployee_Css"  type="password">
+                                    </div>
+                                    </div>
+                                    </fieldset>
+                                  <!-- </formfield> -->
+                                  </form>
+                                  </div>
+                               
+                                <form>
+                            
+                                <div class="well">
+                                  <div class="form-group">
+                                   <div class="box-footer boxfooter_Css">
+                                  <i class="red fleft"> &#42  This fields are mandatory</i>
+                                  <button class="btn btn_Css btn-info fright" type="submit" onclick="myFunction()">save</button>
+                                   </div>
+                                  </div>
+                                </div>
+
+                                  </form>
+                                 </div>
+                                </div>
+                               </div>
+                              </div>       
+                           </section>
+                        <!-- </div> -->
+ <script src="js/create_employee.js"></script>
+

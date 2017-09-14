@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Empower</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/AdminLTE.css">
+  <link rel="stylesheet" href="css/_all-skins.css">
+  <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+  <script type="text/javascript" src="static/js/jquery-1.12.3.js"></script>
+  <script type="text/javascript" src="static/js/jquery.validate.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="static/js/sweetalert.min.js"></script>
+  <script src="js/ajaxHandler.js"></script>
+  <style>
+    .form-groupcss {
+      padding: 0px 10px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .img {
+      height: 15px;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+    .img:hover {
+      cursor: pointer;
+    }
+
+    .submitbuttonCss {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="index.html"><b>Em</b>power</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form id="signupForm" method="post" class="form-horizontal" action="">
+        <div class="form-group form-groupcss has-feedback">
+
+          <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
+          <!-- <i class="fa fa-sign-in pull-right" aria-hidden="true"></i> -->
+        </div>
+        <div class="form-group form-groupcss has-feedback">
+          <span class="fa fa-eye img" onmousedown="mDown()" onmouseup="mUp()" aria-hidden="true" name="password"></span>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+
+          </div>
+          <div class="col-xs-4 submitbuttonCss">
+            <button type="submit" class="btn btn-primary pull-right" name="signup" value="Sign up">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <a href="html/forget-email.html">forgot password</a><br>
+
+    </div>
+  </div>
+</body>
+
+</html>

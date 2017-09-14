@@ -1,0 +1,422 @@
+<script src="js/leave.js"></script>
+<!-- <div class="content-wrapper"> -->
+<div class='bodyloading'>
+    <div class="boxloading_leaveTable"></div>
+</div>
+<section class="content">
+    <div class="row header_Doc">
+        <div class="admin_title leaveBalance_Div col-sm-12 col-md-12 col-xs-12 col-lg-12 box_titleMedia hide" id="admin_title">Leave Record</div>
+        <div class="leaveBalance_Div col-sm-6 col-md-6 col-xs-6 col-lg-6">
+            <div class="hide box_titleMedia" id="leave_balance">Leave Balance:100</div>
+        </div>
+        <div class="leaveButton col-sm-6 col-md-6 col-xs-6 col-lg-6 box_titleMedia hide"><button type="button" title="Leave Application" class="btn leave_button pull-right box_titleMedia" data-toggle="modal" id="modalopenButton" data-target="#myModal">Leave Application</button></div>
+    </div>
+
+    <div class="boxA">
+        <div class="modal fade" tabindex="-1" id="myModal" role="dialog">
+
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header modHeader">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title modalTitle">Leave Application</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row leavemodalbodyCss">
+                            <!-- <div class="col-sm-8 col-sm-offset-2"> -->
+                            <!-- <div class="panel panel-default"> -->
+                            <!-- <div class="panel-body"> -->
+                            <form id="LeaveForm" method="post" class="form-horizontal" action="">
+                                <div class="form-group">
+                                    <label class="col-sm-5 col-md-5 col-xs-12 col-lg-5 control-label">From:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6">
+                                        <input type="text" class="form-control" id="datepickera">
+                                        <p id="error1" class="leavedate_error" style="display:none;">Please select Right date</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-5 col-md-5 col-xs-12 col-lg-5 control-label">To:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6">
+                                        <input type="text" class="form-control" id="datepickerb">
+                                        <p id="error2" class="leavedate_error" style="display:none;">Please select Right date</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-5 col-md-5 col-xs-12 col-lg-5 control-label">Supervisor:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6">
+                                        <select class="selectpicker form-control" id="selectsupervisor">
+                </select>
+                                        <p id="error3" class="leavedate_error" style="display:none;">Please select supervisor Name</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-5 col-md-5 col-xs-12 col-lg-5 control-label">Leave Type:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6">
+                                        <select class="selectpicker form-control" id="selectleave">
+                  <option>select</option>
+                 <option>Casual Leave</option>
+                  <option>Sick Leave</option>
+                  <option>NPL</option>
+                </select>
+                                        <p id="error4" class="leavedate_error" style="display:none;">Please select leave type</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label">CC link:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6 leaveApplication_below">
+
+                                        <select id="selectcclink" class="form-control" multiple="multiple" style="display:block;">
+               </select>
+                                        <p id="error5" class="leavedate_error" style="display:none;">Please select cc link</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 control-label"></label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12 col-lg-6 leaveApplication_below">
+                                        <a class="btn btn-default" id="applymodal" href="#" role="button">Apply</a>
+                                        <a class="btn btn-default " data-dismiss="modal" href="#" role="button">Close</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="boxC">
+
+        <div class="example_leaveDiv  hide">
+            <table id="example_leave" class="leave_Table cell-border display " cell-cellspacing="0" width="100%">
+                <thead class="leaveTable_header" id="example_leaveHeader">
+                    <tr>
+                        <th>Emp no.</th>
+                        <th>Leaves from</th>
+                        <th>Leave to</th>
+                        <th>Duration</th>
+                        <th>Requested on</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="leaveTable_body"></tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+<!-- </div> -->
+
+<script>
+    var sup_id = [];
+    console.log("<<<<<<<<<leave");
+    var loginObj = storagegetItem("login");
+    var adminloginObj = storagegetItem("adminlogin");
+    console.log(loginObj.Role);
+    $("#modalopenButton").click(function() {
+        var obj = {
+            "key": "sup"
+        };
+        var objNew = {
+            "key": "cc"
+        };
+        console.log(obj);
+        $.when(Posthandler("path/getEmailLists", obj, true)).done(function(res) {
+            console.log(res);
+            if (res.resCode == 'OK') {
+                $("#selectsupervisor").html('<option>select</option>');
+                // console.log(res.results);
+                sup_id = res.results;
+                console.log(sup_id);
+                for (var i = 0; i < res.results.length; i++) {
+                    $("#selectsupervisor").append('<option>' + res.results[i]["emp_lastname"] + '</option>');
+                }
+            } else {
+                console.log(res.results);
+            }
+        }).fail(function() {
+            swal("Error!", "sorry unable to load supervisor list. please check your internet connection", "error");
+        });
+        $.when(Posthandler("path/getEmailLists", objNew, true)).done(function(res1) {
+            console.log(res1);
+            if (res1.resCode == 'OK') {
+                $("#selectcclink").html(" ");
+                // console.log(res1.results);
+                for (var i = 0; i < res1.results.length; i++) {
+                    // console.log(res1.results[i]);
+                    $("#selectcclink").append('<option>' + res1.results[i]["emp_email_id"] + '</option>');
+
+                }
+                $('#selectcclink').multiselect({
+                    enableFiltering: true,
+                    // includeSelectAllOption: true,
+                    maxHeight: 115,
+                    dropUp: true
+                });
+
+            } else {
+                console.log(res1.results);
+            }
+        }).fail(function() {
+            swal("Error!", "sorry unable to load cc link list. please check your internet connection", "error");
+        });
+    }); // #modalopenButton function close
+    var objSave = {};
+    var arrSelected = [];
+
+    $("#applymodal").click(function() {
+        // console.log(arrSelected);
+        console.log(sup_id);
+        var supervisor_email;
+        // var daterange=document.getElementById("reservation").value;
+        var from = document.getElementById("datepickera").value;
+        var to = document.getElementById("datepickerb").value;
+        var supervisor = document.getElementById("selectsupervisor").value;
+        var leave_Type = document.getElementById("selectleave").value;
+        for (var i = 0; i < sup_id.length; i++) {
+            // console.log("<<<<<<<<"+supervisor);
+            // console.log(sup_id[i]["emp_firstname"]);
+            if (supervisor == sup_id[i]["emp_lastname"]) {
+                supervisor_email = sup_id[i]["emp_email_id"];
+            }
+        }
+        console.log(supervisor_email);
+        console.log($("#selectcclink").val());
+        if (from !== "") {
+            $("#error1").hide();
+            if (from <= to) {
+                $("#error2").hide();
+                if ((supervisor != "") && (supervisor != "select")) {
+                    $("#error3").hide();
+                    if ((leave_Type != "") && (leave_Type != "select")) {
+                        $("#error4").hide();
+                        objSave.from = from;
+                        objSave.to = to;
+                        var cc = JSON.stringify($("#selectcclink").val());
+                        objSave.cc_array = cc;
+                        console.log(cc);
+                        objSave.leave_type = leave_Type;
+                        objSave.email = supervisor_email;
+                        console.log("sup id------------>", $("#selectsupervisor").val());
+                        console.log(objSave);
+                        $('#myModal').modal('toggle');
+                        $('.bodyloading').removeClass('hide');
+                        $('.example_leaveDiv').addClass('hide');
+
+                        $.when(Posthandler("path/sendemail", objSave, true)).done(function(res) {
+                            console.log(res);
+                            console.log(res)
+                            console.log(typeof(res));
+                            // console.log(res["resCode"]); //    console.log(res.resCode); // console.log(res[0]);
+                            if (res.resCode == "OK") {
+                                console.log(">>>>>>>>>>>>>>>");
+                                console.log(res.msg);
+                                // $('#myModal').modal('toggle');
+                                $("#containerload").load("html/leave.html");
+                                swal("Hi.." + loginObj.Name + " your leave request has been send to your Supervisor")
+                            } else {
+                                console.log(">>");
+                                console.log(res.msg);
+                            }
+                        }).fail(function() {
+                            swal("Error!", "sorry unable to apply leave. please check your internet connection", "error");
+                        });
+                    } else {
+                        $("#error4").show();
+                    }
+                } else {
+                    $("#error3").show();
+                } // else{alert("please select all field");}
+            } else {
+                $("#error2").show();
+            }
+        } else {
+            $("#error1").show();
+        }
+    }); // apply modal block closed
+
+    var objSave1 = {};
+    var res = [];
+    $.when(Posthandler("path/leaveStatus", objSave1, true)).done(function(res1) {
+        console.log(res1);
+        $('.bodyloading').addClass('hide');
+        $('.example_leaveDiv').removeClass('hide');
+        res = res1.results;
+        if ((loginObj.Role == 3) || (loginObj.Role == 4)) {
+            $.each(res, function(i, res) {
+                var body = "<tr>";
+                body += "<td>" + res.emp_no + "</td>";
+                // body    += "<td>" + res.emp_name + "</td>";
+                body += "<td>" + res.leaves_applied_from + "</td>";
+                body += "<td>" + res.leaves_applied_upto + "</td>";
+                body += "<td>" + res.no_of_days + "</td>";
+                body += "<td>" + res.requested_on + "</td>";
+                if ((res.status == 'p') || (res.status == 'pending')) {
+                    body += "<td style='color:#FFA500'>pending</td>";
+                } else if ((res.status == 'a') || (res.status == 'approved')) {
+                    body += "<td style='color:green'>approved</td>";
+                } else {
+                    body += "<td style='color:red'>Rejected</td>";
+                }
+                body += "</tr>";
+                $("#example_leave tbody").append(body);
+                // console.log(">>>>>>>>>>"+res.leaves_balance);
+            });
+            create_DatatableLeave("#example_leave");
+            $(".boxloading").addClass('hide');
+            $('#leave_balance').html('Leave Balance:' + res1.user_data["leaves_balance"]);
+            $('#leave_balance').removeClass('hide');
+            $('.leaveButton').removeClass('hide');
+
+        } else if (loginObj.Role == 2) {
+            $("#example_leaveHeader").html("");
+            $("#example_leaveHeader").append('<tr><th>Emp no.</th><th>Emp name</th><th>Leave Balance</th><th>Leaves from</th><th>Leave to</th><th>Duration</th><th>Requested on</th><th>Status</th></tr>');
+            console.log(res);
+            // var re=[];
+            // re= res.results;
+            // console.log(re);
+            $.each(res, function(i, res) {
+                console.log(res.status);
+                var body = "<tr>";
+                body += "<td>" + res.emp_no + "</td>";
+                body += "<td>" + res.emp_name + "</td>";
+                body += "<td>" + res.leave_balance + "</td>";
+                body += "<td>" + res.leaves_applied_from + "</td>";
+                body += "<td>" + res.leaves_applied_upto + "</td>";
+                body += "<td>" + res.no_of_days + "</td>";
+                body += "<td>" + res.requested_on + "</td>";
+                if (res.status == 'p') {
+                    body += "<td><select  class='leavestatus_Select' id='selectleavestatus' emp_no='" + res.emp_no + "' duration='" + res.no_of_days + "' requested_on='" + res.requested_on + "' from='" + res.leaves_applied_from +
+                        "' to='" + res.leaves_applied_upto +
+                        "'onchange='getval(this)';><option style='color:#FFA500'>pending</option><option style='color:green'>approve</option><option style='color:red'>reject</option></select></td>";
+                } else if (res.status == 'r') {
+                    body += "<td style='color:red'>rejected</td>";
+                } else {
+                    body += "<td style='color:green'>approved</td>";
+                }
+                body += "</tr>";
+                $("#example_leave tbody").append(body);
+            });
+            create_DatatableLeave("#example_leave");
+            $(".boxloading").addClass('hide');
+            $('#leave_balance').html('Leave Balance:' + res1.user_data["leaves_balance"]);
+            $('#leave_balance').removeClass('hide');
+            $('.leaveButton').removeClass('hide');
+
+        } else {
+            $("#example_leaveHeader").html("");
+            $(".title_div").hide();
+            $('#admin_title').removeClass('hide');
+            // alert("hide");
+            $("#example_leaveHeader").append('<tr><th>Emp no.</th><th>Emp name</th><th>Leave Balance</th><th>Leaves from</th><th>Leave to</th><th>Duration</th><th>Requested on</th><th>Status</th></tr>');
+            console.log(res);
+            $.each(res, function(i, res) {
+                console.log(res);
+                var body = "<tr>";
+                body += "<td>" + res.emp_no + "</td>";
+                body += "<td>" + res.emp_name + "</td>";
+                body += "<td>" + res.leave_balance + "</td>";
+                body += "<td>" + res.leaves_applied_from + "</td>";
+                body += "<td>" + res.leaves_applied_upto + "</td>";
+                body += "<td>" + res.no_of_days + "</td>";
+                body += "<td>" + res.requested_on + "</td>";
+                if (res.status == 'p') {
+                    body += "<td><select  class='leavestatus_Select' id='selectleavestatus' emp_no='" + res.emp_no + "' duration='" + res.no_of_days + "' requested_on='" + res.requested_on + "' from='" + res.leaves_applied_from +
+                        "' to='" + res.leaves_applied_upto +
+                        "'onchange='getval(this)';><option style='color:#FFA500'>pending</option><option style='color:green'>approve</option><option style='color:red'>reject</option></select></td>";
+                } else if (res.status == 'r') {
+                    body += "<td style='color:red'>rejected</td>";
+                } else {
+                    body += "<td style='color:green'>approved</td>";
+                }
+                $("#example_leave tbody").append(body);
+            });
+            create_DatatableLeave("#example_leave");
+        }
+    }).fail(function() {});
+
+    function getval(sel) {
+        $('.bodyloading').removeClass('hide');
+        $('.example_leaveDiv').addClass('hide');
+        $('#leave_balance').addClass('hide');
+        $('.leaveButton').addClass('hide');
+        var status = (sel.value);
+        var emp_no = parseInt($(sel).attr("emp_no"));
+        var duration = $(sel).attr("duration");
+        var requested_on = $(sel).attr("requested_on");
+        var leaves_applied_from = $(sel).attr("from");
+        var leaves_applied_upto = $(sel).attr("to");
+        // console.log(res+ "<><><>"+selected);
+        // console.log(emp_name);
+        var s;
+        if (status == "approve") {
+            s = "a"
+        } else if (status == "reject") {
+            s = "r"
+        } else {
+            s = "p"
+        }
+        console.log("s===", emp_no);
+        var objSave2 = {
+            "requested_on": requested_on,
+            "status": s,
+            "duration": duration,
+            "emp_no": emp_no,
+            "leaves_to": leaves_applied_upto,
+            "leaves_from": leaves_applied_from
+        };
+        console.log(objSave2);
+
+        swal({
+                title: "Really you want to change leave status??",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, change it!",
+                cancelButtonText: "No, cancel it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    swal.close();
+                    $('.bodyloading').removeClass('hide');
+                    $.when(Posthandler("path/receiveEmail", objSave2, true)).done(function(res1) {
+                        console.log(res1);
+                        if (res1 = "ok") {
+                            console.log(res1);
+                            swal({
+                                title: 'Changed!',
+                                text: 'Leave status has been changed successfully!',
+                                type: 'success'
+                            });
+                            $('.bodyloading').addClass('hide');
+                            $('#leave_balance').removeClass('hide');
+                            $('.leaveButton').removeClass('hide');
+                            $('#example_leave').removeClass('hide');
+                            $("#containerload").load("html/leave.html");
+                        } else {
+                            swal("Error!", "fail upload.", "error");
+                        }
+                    }).fail(function() {
+                        swal("Error!", "fail upload. please check your internet connection", "error");
+                    });
+                } else {
+                    swal("", "Cancelled", "error");
+                    $("#containerload").load("html/leave.html");
+                }
+            });
+    }
+</script>

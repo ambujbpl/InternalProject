@@ -1,0 +1,82 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+
+  /*==========  Non-Mobile First Method  ==========*/
+
+  /*----------- common device -----------*/
+  @media only screen and (min-width: 768px){
+  .multiselect{
+   width: 255px !important;
+   overflow: hidden !important;
+  }
+  .multiselect-container{ 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 255px !important;
+    background-color: #cbcbcb !important;
+    height: 120px !important;
+  } 
+  } 
+
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {
+  body{font-size: 16px !important;} 
+  .btn-custom1,.btn-custom2{font-size: 10px !important;}  
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  body{font-size: 16px !important;}
+  .btn-custom1,.btn-custom2{font-size: 10px !important;} 
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {    
+  body{font-size: 15px !important;}
+  .box_titleMedia{font-size: 15px !important;}
+  .form-control{font-size: 15px !important;}
+  .btn-custom1,.btn-custom2{font-size: 8px !important;}
+  }
+
+  /* Extra Small Devices, Phones */ 
+  @media only screen and (min-width: 321px) and (max-width: 767px) {
+  body{font-size: 12px !important;}
+  .box_titleMedia{font-size: 12px !important;}
+  .form-control{font-size: 12px !important;}
+  .btn-custom1,.btn-custom2{font-size: 8px !important;} 
+  .spanCss{font-size: 10px !important;}
+  .multiselect {
+    overflow: hidden !important;
+    width: 280px !important;
+    font-size: 12px !important;
+   }
+  .multiselect-container {
+    background-color: #cbcbcb !important;
+    width: 280px !important;
+    font-size: 12px !important;
+    height: 100px !important;
+   }   
+  }
+
+  /* Custom, iPhone Retina */ 
+  @media only screen and (max-width: 320px) and (min-width : 0px) {
+  body{font-size: 10px !important;}
+  .box_titleMedia{font-size: 10px !important;}
+  .formCreateemployee_Css{width:100%;}
+  .form-control{font-size: 10px !important;}
+  .btn-custom1,.btn-custom2{font-size: 8px !important;}
+  .spanCss{font-size: 8px !important;}
+  .multiselect {
+    overflow: hidden !important;
+    width: 238px !important;
+    font-size: 10px !important;
+   }
+  .multiselect-container {
+    background-color: #cbcbcb !important;
+    width: 238px !important;
+    font-size: 10px !important;
+    height: 100px !important;
+   } 
+  }

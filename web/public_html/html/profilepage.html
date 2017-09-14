@@ -1,0 +1,132 @@
+<div class="tab-content">
+      <div class="tab-pane active" id="about">
+          <h3 class="emp_name"></h3>
+          <div id="imageappend1" class="image imageCss"></div>
+                <div class="main-box-body" >
+                         <table class="table profileTable table-responsive table-display">
+                              <tbody>
+                                <tr>
+                                  <td class='profileinfo'>
+                                    <span class='spanCss'>Supervisor</span>
+                                  </td>
+                                  <td>
+                                    <span class='spanCss sup'></span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class='profileinfo'>
+                                    <span class='spanCss'>Email Id</span>
+                                  </td>
+                                  <td>
+                                    <span class='spanCss email'></span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class='profileinfo'>
+                                    <span class='spanCss'>Supervisor ID</span>
+                                  </td>
+                                  <td>
+                                    <span class='spanCss empid'></span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class='profileinfo'>
+                                    <span class='spanCss'>Employee Id</span>
+                                  </td>
+                                  <td>
+                                    <span class='spanCss username'></span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class='profileinfo'>
+                                    <span class='spanCss'>Date of joining</span>
+                                  </td>
+                                  <td>
+                                    <span class='spanCss doj'></span>
+                                  </td>
+                                </tr>
+                                 
+                              </tbody>
+                           </table>
+                        </div>
+                      </div>
+                  </div>
+<style type="text/css">
+              .imageCss img {
+               border-radius: 30%;
+               border: 1px solid #ccc;
+              }
+              h3.emp_name{
+              text-transform: uppercase;
+              }
+              .profileTable{
+                list-style-type: none; font-size: 10px;text-align: left !important;margin: 0px; word-wrap: break-word; 
+                }
+              .profileTable tr td{
+                text-align: left !important; border: 0px !important;padding: 5px !important;
+              }
+              .emp_name{
+                border-bottom:none !important;
+                color:#006400;
+                text-align: center;
+                margin: 0px;
+              }
+              .main-box-body{
+                padding-top:10px;
+              }
+              .spanCss{
+                font-size: 11px;
+                text-align:left;
+                margin: 0px !important;
+                color:#525252;  
+                }
+                .profile-content{margin:0 auto;border: 1px solid #dedede;padding:15px;}
+ </style>
+ <script type="text/javascript">
+    var obj;
+    console.log(obj);
+    $.when(Gethandler("/getProfile", obj, true)).done(function(res){console.log(res);
+    var data=res.data;
+    console.log(data);
+    generateProfile(data);
+    })
+              function generateProfile(data){
+                console.log(data);
+                var tabledata = "";
+                      $(".emp_name").html(data["emp_lastname"]+" "+data["emp_firstname"]);
+                    tabledata +="<tbody>";
+                      $.each( data, function( key, val ) {
+                      console.log("key>>>>",key,"<<<<<<<value",val);
+                        if(key === "supervisor"){
+                          $(".sup").html(": "+data["supervisor"]);
+                        }
+                        if(key === "emp_email_id"){
+                          $(".email").html(": "+data["emp_email_id"]);
+                        }
+                        if(key === "emp_no"){
+                          $(".username").html(": "+data["emp_no"]);
+                        }
+                        if(key === "joining_date"){
+                          $(".doj").html(": "+moment(data["joining_date"]).format("YYYY-MM-DD"));
+                        }
+                        if(key === "emp_sup_id"){
+                          $(".empid").html(": "+data["emp_sup_id"]);
+                        }
+                    });
+              }
+$.when(Posthandler("path/downloads", obj, true)).done(function(res){console.log("image>>>>>",res.result_64);
+var base64_string = res.result_64;
+$("<img>", {
+         "src": "data:image/png;base64," + base64_string,
+         // added `width` , `height` properties to `img` attributes
+         "width": "40%", "height": "auto"})
+       .appendTo("#imageappend1");
+       // $(".headerphoto_replacement").addClass('hide');
+       // $("#img_preview >img").addClass('circle-icon');
+       // }
+// var decodedString = atob(res);
+// console.log(decodedString);
+// $(.image img{bor})
+ });                           
+ </script>
+       

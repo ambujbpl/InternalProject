@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Email</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../css/AdminLTE.css">
+  <link rel="stylesheet" href="../css/_all-skins.css">
+  <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />
+  <script type="text/javascript" src="../static/js/jquery-1.12.3.js"></script>
+  <script type="text/javascript" src="../static/js/jquery.validate.js"></script>
+  <script src="../static/js/sweetalert.min.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/ajaxHandler.js"></script>
+    <!-- // <script src="../js/email.js"></script> -->
+    <style>
+    .but_Div{padding: 0px !important;}
+    .form-groupcss{
+     padding: 0px 10px;
+     }
+     .error{color: red;}
+    </style>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="url"><b>Forgot-Password</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+   <form id="emailvalid" method="post" class="form-horizontal form-groupcss" action="">
+      <div class="form-group has-feedback">
+       <input type="text" class="form-control" id="email" name="email" placeholder="Email" />
+      </div>
+     <div class="row">
+       <div class="col-xs-4 but_Div">
+         <button type="submit" class="btn btn-primary emailbutton" name="signup" value="Sign up">Submit</button>
+       </div>
+       <a class="pull-right" style="margin-top:14px" href="../index.html">Back to Login</a>
+     </div>
+   </form>
+  </div>
+</div>
+</body>
+ <script src="../js/email.js"></script>
+
+
+

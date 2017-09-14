@@ -1,0 +1,79 @@
+<div class="tab-content">
+      <div class="tab-pane active" id="about">
+              <div class="main-box-body" style="position: relative;">
+                           <div class="this_NotiDiv">
+                              <div class="row noMargin">
+                                <div class="col-sm-2 col-md-2 col-xs-2 col-lg-2 this_imgDiv" data-toggle="tooltip" data-placement="bottom" title="Birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
+                                <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10 this_dataDiv">
+<!--                                   <div class="row noMargin">
+                                    <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 this_dataDivName this_data1"></div>
+                                    <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 this_dataDivDate this_data2"></div>
+                                  </div>  -->
+                                  <span class="data1"></span>
+                                </div>                              
+                             </div>
+                            </div>
+
+                            <div class="this_NotiDiv mt5">
+                              <div class="row noMargin">
+                                <div class="col-sm-2 col-md-2 col-xs-2 col-lg-2 this_imgDiv" data-toggle="tooltip" data-placement="bottom" title="Official Holidays"><i class="fa fa-calendar" aria-hidden="true"></i> </div>
+                                <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10 this_dataDiv">
+ <!--                                  <div class="row noMargin">
+                                    <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 this_dataDivName this_data3"></div>
+                                    <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 this_dataDivDate this_data4"></div>
+                                  </div>  --> 
+                                  <span class="data2"></span>                              
+                                </div>                              
+                             </div>
+                            </div>
+                      </div>
+                  </div>
+<style type="text/css">
+.this_NotiDiv{
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 2px;
+}
+.noMargin{
+  margin: 0px;
+  padding: 0px;
+}
+.this_imgDiv{
+  text-align: center;
+  color: #336600;
+}
+.this_dataDiv{
+  text-align: left;
+  top:0px;
+  padding: 0px;
+}
+.this_dataDivName,.this_dataDivDate{
+  text-align: left;  
+}
+.this_imgDiv:hover{cursor: pointer;}
+ </style>
+ <script type="text/javascript">
+    var obj;
+$.when(Posthandler("path/b_days", obj, true)).done(function(res1) {console.log(res1);
+ if(res1.resCode === "OK"){
+  var newObj = res1.results; 
+  $.each(newObj, function(i, newObj){
+  // $('.this_data1').append(newObj["name"]);
+  // $('.this_data2').append(newObj["date"]);  
+  $('.data1').html("<span style='color:red'>"+ newObj["name"] +"</span> is having birthday on  <span style='color:blue'>" + newObj["date"] + "</span> .");
+    })
+   }
+ });
+$.when(Posthandler("path/holidays", obj, true)).done(function(res2) {console.log(res2);
+ if(res2.resCode === "OK"){
+  var newObj1 = res2.results; 
+  console.log(">>>",newObj1.name);
+  // $.each(newObj1, function(j, newObj1){
+  // $('.this_data3').append(newObj1.name);
+  // $('.this_data4').append(newObj1.date);  
+    // })
+     $('.data2').html("<span style='color:blue'>"+ newObj1.date +"</span> will be a  holiday on <span style=  'color:red'>" + newObj1.name + "</span> .");
+   }
+ });
+ </script>
+       

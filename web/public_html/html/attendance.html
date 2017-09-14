@@ -1,0 +1,190 @@
+<script src="js/attendance.js"></script>
+<div class='bodyloading'>
+    <div class="boxloading_leaveTable"></div>
+</div>
+<section class="content hide">
+    <div class='header_Doc'>
+        <div class='box_titleMedia box_title'>Attendance Records</div>
+    </div>
+    <div class='boxC'>
+        <div class="buttongroup_align" style="width: 100%;">
+            <!-- <div class="btn-group"> -->
+            <div class="btn-group pull-right" style="margin-right: 0px;">
+                <button type="button" class="btn btn-custom1 raised 3m" id="3m" value="3m" data-toggle="tooltip" data-placement="bottom" title="3 Months">3M</button>
+                <button type="button" class="btn btn-custom1 raised 2m" id="2m" value="2m" data-toggle="tooltip" data-placement="bottom" title="Last Month">LM</button>
+                <button type="button" class="btn btn-custom1 raised active" id="lm" value="lm" data-toggle="tooltip" data-placement="bottom" title="Last 30 Day">1M</button>
+                <button type="button" class="btn btn-custom1 raised" id="1m" value="1m" data-toggle="tooltip" data-placement="bottom" title="Current Month">MD</button>
+                <button type="button" class="btn btn-custom1 raised" id="7d" value="7d" data-toggle="tooltip" data-placement="bottom" title="Last 7 Day">1W</button>
+                <button type="button" class="btn btn-custom1 raised" id="1d" value="1d" data-toggle="tooltip" data-placement="bottom" title="Yesterday">-D</button>
+                <button type="button" class="btn btn-custom1 raised" id="cus" value="cus" data-toggle="tooltip" data-placement="bottom" title="Custom Date">CD</button>
+                <div class="rangePic pull-right hide" style="margin-top:5px"><input type="text" id="daterange" name="daterange" /></div>
+            </div>
+
+            <div class="checkedRole btn-group pull-left hide">
+                <button type="button" class="btn btn-custom2 btnRole hide" id="team" value="team" data-toggle="tooltip" data-placement="bottom" title="Team">Team</button>
+                <button type="button" class="btn btn-custom2 btnRole" id="project" value="project" data-toggle="tooltip" data-placement="bottom" title="Project">Project</button>
+                <button type="button" class="btn btn-custom2 btnRole" id="role" value="role" data-toggle="tooltip" data-placement="bottom" title="Role">Role</button>
+                <button type="button" class="btn btn-custom2 btnRole active" id="employee" value="employee" data-toggle="tooltip" data-placement="bottom" title="Employee">Employee</button>
+            </div>
+        </div>
+        <div class="attendanceChartContainer">
+            <div class="row no-margin">
+                <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12" id="chartField1" style="min-width: 200px; height: 300px; margin: 0 auto">
+                </div>
+            </div>
+        </div>
+        <div class="moreDetails">
+            <!--           <div id="about" class="nano">
+           <div class="content">  -->
+            <table id="moreDetailsTable" class="responsive condance table-bordered table-striped" style="text-align: center; width: 100%;">
+                <tr id="moreDetailsTableTr" style="text-align: center;margin-right: 10px !important">
+                </tr>
+            </table>
+        </div>
+        <!--           </div>
+        </div>   -->
+        <div class="attendanceTable hide"></div>
+    </div>
+</section>
+<style>
+    .innerTabletr td {
+        padding: 3px 6px !important;
+    }
+
+    .highcharts-credits {
+        display: none !important;
+    }
+
+    table .innerTabletr td {
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+
+    table .innerTabletr td:last-child {
+        border-right: none;
+    }
+    /*     table .innerTabletr:last-child{border-bottom:none;}*/
+
+    table .highligtTd {
+        background-color: #EAEAEA;
+    }
+
+    .opentabledivBtn {
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .moreDetails {
+        overflow-x: auto;
+    }
+
+    #moreDetailsTable tbody>#moreDetailsTableTr tr>td {
+        border-spacing: 15px;
+    }
+
+    .test {
+        min-width: 200px !important;
+        max-width: 250px !important;
+        border: 1px solid #d3d3d3;
+        border-bottom: none;
+        margin: 0 auto 10px auto;
+        font-size: 14px;
+        background: #ffffff !important;
+    }
+
+    .testtable {
+        margin: 0px;
+    }
+
+    .tabletital {
+        width: 100%;
+        line-height: 24px;
+        font-weight: bold;
+    }
+
+    .attendanceTableHeaderDiv {
+        width: 30%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 13px !important;
+        color: #424141;
+        background-color: #EAEAEA;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+    }
+
+    .attendanceTableTitle {
+        margin: 0px auto !important;
+    }
+
+    .backButton {
+        padding: 2px 4px;
+        margin: 5px;
+        position: relative;
+        top: -8px;
+        color: #0a73ac;
+        background: transparent;
+    }
+
+    .backButton span {
+        position: relative;
+        top: 0px;
+        padding-left: 8px;
+    }
+
+    .btn-custom1Div {
+        left: 30%;
+        position: absolute;
+        z-index: 2;
+    }
+
+    table.attendance_listTable tr:hover {
+        cursor: pointer;
+    }
+
+    .raised+.tooltip>.tooltip-inner {
+        background-color: #367fa9;
+    }
+
+    .btnRole+.tooltip>.tooltip-inner {
+        background-color: #367fa9;
+    }
+
+    .opentabledivBtn+.tooltip>.tooltip-inner {
+        background-color: #367fa9;
+    }
+
+    .bottomtable {
+        background-color: #ffffff;
+        color: #252525;
+    }
+
+    .toptable {
+        background-color: #222D32;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .underline:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .newData {
+        padding: 0px 20px;
+        width: 40%;
+    }
+
+    #chartField1 .highcharts-container{
+        width: 100% !important;   
+    }
+</style>
+
+
+
+
+
+
+<!--            <div class="chartDiv col-sm-3 col-md-3 col-xs-3 col-lg-3 hide" id="chartField2" style="min-width: 100px; height: 200px; max-width: 600px; margin: 0 auto">
+            </div> -->

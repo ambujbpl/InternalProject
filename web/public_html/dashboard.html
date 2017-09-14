@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Mobibuzz</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/_all-skins.css" />
+    <link rel="stylesheet" href="css/AdminLTE.css" />
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/dataTables.fontAwesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/nanoscroller.css" />
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom_Media.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+    <!-- js CDN -->
+    <!-- AdminLTE App -->
+    <!--<link rel="stylesheet" type="text/css" href="css/datepicker.css" /> -->
+    <script type="text/javascript" src="static/js/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="static/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="static/js/moment.min.js"></script>
+    <script type="text/javascript" src="static/js/app.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <script src="static/js/jquery.nanoscroller.min.js"></script>
+    <!-- <script src="static/js/dw_scroll_c.js" type="text/javascript"></script>  -->
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/bootstrap-multiselect.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ajaxHandler.js"></script>
+    <script src="static/js/sweetalert.min.js"></script>
+    <script src="js/creat_DatatableCall.js"></script>
+    <script src="js/convertMinsToHrsMins.js"></script>
+    <script type="text/javascript" src="js/employeelist.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="static/js/daterangepicker.js"></script>
+    <!-- for charts plugin -->
+    <script src="static/js/highcharts.js"></script>
+    <script src="static/js/exporting.js"></script>
+    <!-- <script src="js/attendance.js"></script> -->
+    <!-- <script src="static/js/highcharts-more.js"></script> -->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="dashboard.html" class="logo1"><img src="logo-wht.png" alt="logo" height="40" /></a>
+            <a href="dashboard.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>Em</b>p</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Em</b>power</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top navbar_Css">
+                <!-- Sidebar logout and change password button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="dropdown">
+                    <div class="logout dropdown-toggle" type="button" title="options" data-toggle="dropdown"><a class="logout_anchor"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></div>
+                    <ul class="dropdown-menu logout_Dropdown pull-right">
+                        <li class="logout_DropdownMenu" id="profile_Div"><a href="javascript:void(0);" class="profileicon"><i class="fa fa-user"></i><span>Profile</span></a></li>
+                        <li class="logout_DropdownMenu" id="changePassword_Div"><a><i class="fa fa-unlock-alt"></i><span>Change password</span></a></li>
+                        <li class="logout_DropdownMenu" id="logout_anchor"><a><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+                    </ul>
+                </div>
+                <div class="checked divTable">
+                    <div class="divTableBody">
+                        <!-- <div class="divTableRow smarthead">
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Login Time"><i class="fa fa-arrow-up success" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="s_field">10:10</span></div>
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Logout Time"><i class="fa fa-arrow-down fail" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="m_field">18:10</span></div>
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Duration"><i class="fa fa-clock-o fail" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="a_field">8:00</span></div>
+                        </div> -->
+                        <div class="divTableRow smarthead">
+                          <div class="item">
+                              <div class="titleinfo">Login Time</div>
+                              <div class="titleinfo"><i class="fa fa-clock-o"></i><span class="fontcol" id="s_field">10:10</span></div>
+                          </div>
+                          <div class="item">
+                              <div class="titleinfo">Logout Time</div>
+                              <div class="titleinfo"><i class="fa fa-clock-o"></i><span class="fontcol" id="m_field">10:10</span></div>
+                          </div>
+                          <div class="item">
+                              <div class="titleinfo">Duration</div>
+                              <div class="titleinfo"><i class="fa fa-clock-o"></i><span class="fontcol" id="a_field">10:10</span></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checked divTable1">
+                    <div class="divTableBody">
+                        <!-- <div class="divTableRow smarthead">
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Total Leaves Taken">
+                              <i class="fa fa-location-arrow fail" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="l_field">4</span></div>
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Total Working Day"><i class="fa fa-sun-o success" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="d_field">18</span></div>
+                            <div class="divTableCell" data-toggle="tooltip" data-placement="bottom" title="Availability"><i class="fa fa-percent success" aria-hidden="true"></i>&nbsp
+                                <span class="fontcol" id="attendancevalue">64</span></div>
+                        </div> -->
+                        <div class="divTableRow smarthead">
+                          <div class="item">
+                              <div class="titleinfo">Total Leaves Taken</div>
+                              <div class="titleinfo"><i class="fa fa-arrow-up success"></i><span class="fontcol" id="l_field">4</span></div>
+                          </div>
+                          <div class="item">
+                              <div class="titleinfo">Total Working Day</div>
+                              <div class="titleinfo"><i class="fa fa-arrow-down fail"></i><span class="fontcol" id="d_field">18</span></div>
+                          </div>
+                          <div class="item">
+                              <div class="titleinfo">Availability</div>
+                              <div class="titleinfo"><i class="fa fa-clock-o fail"></i><span class="fontcol" id="attendancevalue">64</span></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div id="imageappend" class="image imageCss">
+                        <!-- <img src="user2-160x160.jpg" class="img-circle" alt="User Image"> -->
+                    </div>
+                    <div class="text-center mt5">
+                        <p class="admin_name" id="loginPerson_name">Alexander Pierce</p>
+                        <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" id="admin_search" name="q" class="form-control" placeholder="Google Search...">
+                        <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+
+                    <!--          <li class="treeview createCompany_Div">
+          <a href="#">
+            <i class="fa fa-briefcase"></i> <span>Create Company</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li id="createCompany_Div"><a><i class="fa fa-circle-o"></i>Create Company</a></li>
+          </ul>
+        </li>    -->
+
+                    <li class="treeview" id="createemployee_Div">
+                        <a href="#">
+                            <i class="fa fa-briefcase"></i><span class="listTitle">Create-Employee</span>
+                        </a>
+                    </li>
+
+                    <li class="active treeview" id="employeeList_div">
+                        <a href="#">
+                            <i class="fa fa-users"></i><span class="employee_listProfileTreeview-menu listTitle">Employee-list</span>
+                        </a>
+                    </li>
+
+                    <li class="treeview" id="leave_div">
+                        <a href="#">
+                            <i class="fa fa-building-o"></i><span class="listTitle">Leaves</span><span class="listTitle" style="margin-left: 10px;"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="listTitle leavepending" style="margin-left: 5px;"></span></span>
+                        </a>
+                    </li>
+
+                    <li class="treeview" id="attendance_div">
+                        <a href="#">
+                            <i class="fa fa-calendar-plus-o"></i><span class="listTitle">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="treeview" id="notification_div">
+                        <a href="#">
+                            <i class="fa fa-bell"></i><span class="listTitle">Events</span><span class="listTitle" style="margin-left: 10px;"><i class="fa fa-comment-o" aria-hidden="true"></i><span class="listTitle notificationVal" style="margin-left: 5px;"></span></span>
+                        </a>
+                    </li>                    
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+
+
+        <div class="boxA">
+            <div id="aboutModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modalWidth">
+                    <div class="modal-content">
+                        <div class="modal-header modHeader">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title modalTitle">My Profile</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row profile-content">
+                                <div class="col-lg-12 col-md-12  profiledata"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Wrapper. Contains page content {main loader div} -->
+        <div class="content-wrapper" id="containerload">
+
+            <!-- Content Header (Page header) -->
+
+        </div>
+        <!-- /.content-wrapper -->
+
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    var infoObj = {
+        "startat": moment().subtract(2, 'months').startOf('month').format('YYYY-MM-DD'),
+        "endat": moment().format('YYYY-MM-DD'),
+        "dateclass": "1m",
+        "key": "emp"
+    };
+    // if (loginObj.Role !== 1 && loginObj !== 2) {
+    //     delete infoObj.key;
+    // }
+    console.log("info in html", infoObj);
+</script>
+<style type="text/css">
+
+</style>
+
+</html>
